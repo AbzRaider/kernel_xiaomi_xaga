@@ -164,17 +164,17 @@ struct GED_KPI {
 	unsigned long long ullTimeStampS;
 	unsigned long long ullTimeStampH;
 	unsigned int gpu_freq; /* in MHz*/
-	unsigned int gpu_freq_max=860; /* in MHz*/
-	unsigned int gpu_loading=100;
+	unsigned int gpu_freq_max;/* in MHz*/
+	unsigned int gpu_loading;
 	struct list_head sList;
 	long long t_cpu_remained;
 	long long t_gpu_remained;
 	int i32QedBuffer_length;
 	int i32Gpu_uncompleted;
 	int i32DebugQedBuffer_length;
-	int boost_linear_cpu=1;
-	int boost_real_cpu=1;
-	int boost_accum_gpu=1;
+	int boost_linear_cpu;
+	int boost_real_cpu;
+	int boost_accum_gpu;
 	long long t_cpu_remained_pred;
 	unsigned long long t_acquire_period;
 	unsigned long long QedBufferDelay;
@@ -185,7 +185,7 @@ struct GED_KPI {
 	int t_gpu_target;
 	int t_cpu_fpsgo;
 	int gpu_done_interval;
-	int target_fps_margin=90;
+	int target_fps_margin;
 	int eara_fps_margin;
 	int isSF;
 
@@ -215,7 +215,7 @@ struct GED_KPI_GPU_TS {
 
 struct GED_KPI_MEOW_DVFS_FREQ_PRED {
 	int gpu_freq_cur;
-	int gpu_freq_max=860;
+	int gpu_freq_max;
 	int gpu_freq_pred;
 	int gift_ratio;
 
@@ -234,8 +234,8 @@ int g_target_time_default = GED_KPI_SEC_DIVIDER / GED_KPI_MAX_FPS;
 #define GED_KPI_UID(pid, wnd) (pid | ((unsigned long)wnd))
 #define SCREEN_IDLE_PERIOD 500000000
 
-/* static int display_fps = GED_KPI_MAX_FPS; */
-static int target_fps_4_main_head = 60;
+ static int display_fps = GED_KPI_MAX_FPS;
+static int target_fps_4_main_head = 90;
 static long long vsync_period = GED_KPI_SEC_DIVIDER / GED_KPI_MAX_FPS;
 static GED_LOG_BUF_HANDLE ghLogBuf_KPI;
 static struct workqueue_struct *g_psWorkQueue;
